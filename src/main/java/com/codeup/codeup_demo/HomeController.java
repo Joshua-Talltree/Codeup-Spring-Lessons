@@ -43,7 +43,11 @@ class HelloController {
         Random random = new Random();
         random.nextInt(6);
         int number = random.nextInt(5) + 1;
-        viewModel.addAttribute("dice", "Your number is: " + n + " the actual number is: " + number);
+        if (n == number){
+            viewModel.addAttribute("dice", "congratulations, your number: " + n + " matches our number: " + number);
+        } else {
+            viewModel.addAttribute("dice", "Your number is: " + n + " the actual number is: " + number);
+        }
         return "dice-display";
 
     }
